@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "id": "1000",
+      "description": "We present you a home in Gandía owned by a bank, protected housing (VPO). With 3 bedrooms and an intelligent space design, this place adapts perfectly to your family.\n\nThe kitchen, integrated into the living room, is not only functional but also cozy. Imagine relaxed dinners and special moments in this modern space. In addition, a balcony in front of the IES Tirant Lo Blanc school adds an urban touch and impressive views.",
+      "image": "bamboo-watch.jpg",
+      "price": 65000,
+      "category": "Apartment",
+      "area": 100,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "parking": 1,
+      "address": {
+        "street": "Maria Benlliure",
+        "city": "Gandia",
+        "region": "Velencia",
+        "country": "Spain",
+        "zipCode": 22911
+      },
+      "status": "PUBLISHED"
+    },
+    {
+      "id": "1001",
+      "description": "We present you a home in Gandía owned by a bank, protected housing (VPO). With 3 bedrooms and an intelligent space design, this place adapts perfectly to your family.\n\nThe kitchen, integrated into the living room, is not only functional but also cozy. Imagine relaxed dinners and special moments in this modern space. In addition, a balcony in front of the IES Tirant Lo Blanc school adds an urban touch and impressive views.",
+      "image": "bamboo-watch.jpg",
+      "price": 65000,
+      "category": "House",
+      "area": 300,
+      "bedrooms": 4,
+      "bathrooms": 2,
+      "parking": 1,
+      "address": {
+        "street": "Playa de Sagunt",
+        "city": "Sagunt",
+        "region": "Velencia",
+        "country": "Spain",
+        "zipCode": 62343
+      },
+      "status": "DRAFT"
+    }
+  ]
+}

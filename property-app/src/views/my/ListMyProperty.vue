@@ -1,0 +1,85 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { PropertyService } from '@/service/PropertyService';
+import { useRouter } from "vue-router";
+
+
+const dataviewValue = ref<any>(null);
+const layout = ref<"grid" | "list" | undefined>('list');
+const sortOrder = ref(1);
+const sortField = ref("id");
+
+const productService = new PropertyService();
+const router = useRouter();
+
+onMounted(() => {
+  productService.getProductsSmall().then((data) => (dataviewValue.value = data));
+});
+
+function update(item) {
+  router.push({ path: `/my/property/${item.id}` })
+}
+
+</script>
+
+<template>
+  <div class="grid">
+    <div class="col-12">
+      <div class="card">
+        <h5>My Properties</h5>
+
+        <DataView :value="dataviewValue"
+                  :layout="layout" :paginator="false" :sortOrder="sortOrder"
+                  :sortField="sortField"
+                  :dataKey="'id'">
+
+          <template #list="slotProps">
+            <div class="grid grid-nogutter">
+              <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
+                <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3"
+                     :class="{ 'border-top-1 surface-border': index !== 0 }">
+
+                  <div class="md:w-10rem relative">
+                    <img class="block xl:block mx-auto border-round w-full"
+                         :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                         :alt="item.category"/>
+                  </div>
+
+                  <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
+                    <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
+                      <div>
+                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                        <div class="text-lg font-medium text-900 mt-2">
+                          {{ item.address.street }}, {{ item.address.city }}, {{ item.address.country }}
+                        </div>
+                        <span class="text-900 font-medium text-sm">{{ item.area }} m<sup>2</sup></span>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-column md:align-items-end gap-5">
+                      <span class="text-xl font-semibold text-900">${{ item.price }}</span>
+                      <div class="flex flex-row-reverse md:flex-row gap-2">
+                        <Button :label="item.status" disabled
+                                severity="contrast"
+                                outlined>
+                        </Button>
+                        <Button icon="pi pi-pencil" label="Update"
+                                @click="update(item)"
+                                class="flex-auto md:flex-initial white-space-nowrap">
+                        </Button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+        </DataView>
+      </div>
+    </div>
+
+
+  </div>
+</template>
