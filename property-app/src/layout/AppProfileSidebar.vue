@@ -1,8 +1,19 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
 import UserClient from "@/client/UserClient";
+import { onMounted, ref } from "vue";
 
 const { layoutState } = useLayout();
+
+const fullname = ref('');
+
+onMounted(() => {
+  if (UserClient.isSignedIn()) {
+    const user = UserClient.currentUser();
+    fullname.value = user.firstName + ' ' + user.lastName;
+  }
+
+})
 
 function close() {
   layoutState.profileSidebarVisible.value = false;
@@ -21,7 +32,7 @@ function signOut() {
 
     <div class="flex flex-column mx-auto md:mx-0">
       <span class="mb-2 font-semibold">Welcome</span>
-      <span class="text-color-secondary font-medium mb-5">Isabella Andolini</span>
+      <span class="text-color-secondary font-medium mb-5">{{ fullname }}</span>
 
       <ul class="list-none m-0 p-0">
         <li>

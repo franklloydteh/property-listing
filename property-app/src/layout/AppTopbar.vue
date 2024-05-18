@@ -63,12 +63,11 @@ function search() {
 
 <template>
   <div class="layout-topbar">
+
     <div class="topbar-start">
-
       <router-link to="/" class="pr-3 flex center">
-        <h5>Home</h5>
+        <i class="pi pi-home" style="font-size: 2.5rem"></i>
       </router-link>
-
     </div>
 
     <form @submit.prevent="search()">
@@ -87,9 +86,7 @@ function search() {
       </router-link>
       <ul class="topbar-menu" v-if="isSignedIn">
         <li class="topbar-profile">
-          <Button type="button" class="p-link" @click="showProfileSidebar">
-            <img src="/demo/images/avatar/avatar.png" alt="Profile"/>
-          </Button>
+          <i class="pi pi-list cursor-pointer" style="font-size: 2.5rem" @click="showProfileSidebar"></i>
         </li>
       </ul>
     </div>

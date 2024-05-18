@@ -29,7 +29,7 @@ const onSubmit = handleSubmit(data => {
   UserClient.register(data)
       .then(res => {
         console.log(res)
-        router.push('/my/profile')
+        window.location.href = '/my/profile'
       })
       .catch(function (error) {
         console.log('Registration failed', error);

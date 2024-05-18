@@ -12,7 +12,8 @@ export const ProfileValidator = z.object({
         .max(32, { message: "Last Name should not exceed 32 characters." }),
     introduction: z.string()
         .max(1000, { message: "Introduction is limited to 1000 characters." })
-        .optional(),
+        .optional()
+        .nullish(),
     mobile: z.string()
         .regex(phoneRegex, { message: "Invalid Mobile Number" })
         .nullish(),

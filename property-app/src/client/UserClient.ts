@@ -4,7 +4,12 @@ import { jwtDecode } from "jwt-decode";
 const UserClient = {
 
     register(data) {
-        return axios.post('/api/auth/local/register', data);
+        return axios.post('/api/auth/local/register', data)
+            .then(res => {
+                localStorage.setItem('JWT', res.data.jwt);
+                localStorage.setItem('USER', JSON.stringify(res.data.user));
+                return res;
+            });
     },
 
     login(identifier, password) {
@@ -14,6 +19,7 @@ const UserClient = {
         }).then(res => {
             localStorage.setItem('JWT', res.data.jwt);
             localStorage.setItem('USER', JSON.stringify(res.data.user));
+            return res;
         });
     },
 
@@ -39,6 +45,11 @@ const UserClient = {
     updateMe(data) {
         const token = localStorage.getItem('JWT');
         return axios.put('/api/user/me', data, { headers: { "Authorization": `Bearer ${token}` } })
+    },
+
+    currentUser() {
+        const userString = localStorage.getItem('USER');
+        return JSON.parse(userString ? userString : "");
     },
 
     logout() {

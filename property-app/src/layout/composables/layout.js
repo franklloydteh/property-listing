@@ -18,7 +18,8 @@ const layoutState = reactive({
     configSidebarVisible: false,
     staticMenuMobileActive: false,
     menuHoverActive: false,
-    activeMenuItem: null
+    activeMenuItem: null,
+    fullname: ''
 });
 
 export function useLayout() {
