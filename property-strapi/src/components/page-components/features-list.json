@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_components_features_lists",
+  "info": {
+    "displayName": "Features List",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "data-structures.feature"
+    }
+  }
+}

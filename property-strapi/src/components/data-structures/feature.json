@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_data_structures_features",
+  "info": {
+    "displayName": "feature",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "desktop",
+        "lock",
+        "shield",
+        "globe",
+        "check-circle"
+      ],
+      "required": true
+    }
+  }
+}

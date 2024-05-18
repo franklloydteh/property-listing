@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_components_call_to_actions",
+  "info": {
+    "displayName": "Call To Action",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true,
+      "maxLength": 64,
+      "minLength": 1
+    },
+    "description": {
+      "type": "text"
+    },
+    "target": {
+      "type": "string",
+      "required": true
+    },
+    "targetLabel": {
+      "type": "string",
+      "required": true,
+      "default": "ACT NOW"
+    }
+  }
+}

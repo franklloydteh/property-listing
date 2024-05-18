@@ -1,18 +1,26 @@
 <script setup lang="ts">
 import Button from "primevue/button";
+
+const props = defineProps(['data'])
+
+function open(){
+  window.open(props.data.target, '_blank');
+}
 </script>
 
 <template>
   <div class="surface-section px-4 py-8 md:px-6 lg:px-8">
     <div class="text-700 text-center">
-      <div class="text-blue-600 font-bold mb-3"><i class="pi pi-discord"></i>&nbsp;POWERED BY DISCORD</div>
-      <div class="text-900 font-bold text-5xl mb-3">Join Our Design Community</div>
-      <div class="text-700 text-2xl mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam
-        eligendi
-        quos.
+      <div class="text-900 font-bold text-5xl mb-3">
+        {{ data.header }}
       </div>
-      <Button label="Join Now" icon="pi pi-discord" class="font-bold px-5 py-3 white-space-nowrap" raised
-              rounded></Button>
+      <div class="text-700 text-2xl mb-5">
+        {{ data.description }}
+      </div>
+      <Button :label="data.targetLabel"
+              @click="open()"
+              class="font-bold px-5 py-3 white-space-nowrap" raised rounded>
+      </Button>
     </div>
   </div>
 </template>
