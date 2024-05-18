@@ -1,10 +1,17 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
+import AuthClient from "@/client/AuthClient";
 
 const { layoutState } = useLayout();
 
 function close() {
   layoutState.profileSidebarVisible.value = false;
+}
+
+function signOut() {
+  AuthClient.logout();
+  close();
+  window.location.href = '/';
 }
 </script>
 
@@ -40,10 +47,11 @@ function close() {
           </router-link>
         </li>
         <li>
-          <a class="cursor-pointer flex surface-border mb-3 p-3 align-items-center border-1 surface-border border-round hover:surface-hover transition-colors transition-duration-150">
-                        <span>
-                            <i class="pi pi-power-off text-xl text-primary"></i>
-                        </span>
+          <a @click="signOut()"
+             class="cursor-pointer flex surface-border mb-3 p-3 align-items-center border-1 surface-border border-round hover:surface-hover transition-colors transition-duration-150">
+            <span>
+                <i class="pi pi-power-off text-xl text-primary"></i>
+            </span>
             <div class="ml-3">
               <span class="mb-2 font-semibold">Sign Out</span>
             </div>

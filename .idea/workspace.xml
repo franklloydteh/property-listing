@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/property-app/src/client/HomePageClient.ts" afterDir="false" />
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Home Page">
+      <change afterPath="$PROJECT_DIR$/property-app/src/client/AuthClient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property-app/src/validators/LoginValidator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property-app/src/validators/RegistrationValidator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property-strapi/src/extensions/users-permissions/content-types/user/schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/components/blocks/CallToAction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/components/blocks/CallToAction.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/components/blocks/Features.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/components/blocks/Features.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/components/blocks/Hero.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/components/blocks/Hero.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +41,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/frank/Projects/strapi/property-listing/property-app/src/validators",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,7 +55,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.strapi develop">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\validators" />
+      <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\client" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.vue dev">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -131,14 +140,24 @@
       <option name="presentableId" value="Default" />
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
-      <workItem from="1716005434886" duration="11699000" />
+      <workItem from="1716005434886" duration="22325000" />
     </task>
+    <task id="LOCAL-00001" summary="Home Page">
+      <option name="closed" value="true" />
+      <created>1716019372458</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716019372458</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Home Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home Page" />
   </component>
 </project>

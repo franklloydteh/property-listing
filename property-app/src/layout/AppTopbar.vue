@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
+import AuthClient from "@/client/AuthClient";
 
 
 const { onMenuToggle, onProfileSidebarToggle, onConfigSidebarToggle } = useLayout();
@@ -10,8 +11,12 @@ const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
 const router = useRouter();
 
+const isSignedIn = ref(null);
+
 onMounted(() => {
   bindOutsideClickListener();
+  isSignedIn.value = AuthClient.isSignedIn();
+  console.log('signedin', isSignedIn.value)
 });
 
 onBeforeUnmount(() => {
@@ -74,13 +79,13 @@ function search() {
     </form>
 
     <div class="topbar-end flex flex-row">
-      <router-link to="/register" class="pr-3">
+      <router-link to="/register" class="pr-3" v-if="!isSignedIn">
         <h5 class="m-0">Register</h5>
       </router-link>
-      <router-link to="/login" class="pr-3">
+      <router-link to="/login" class="pr-3" v-if="!isSignedIn">
         <h5>Login</h5>
       </router-link>
-      <ul class="topbar-menu">
+      <ul class="topbar-menu" v-if="isSignedIn">
         <li class="topbar-profile">
           <Button type="button" class="p-link" @click="showProfileSidebar">
             <img src="/demo/images/avatar/avatar.png" alt="Profile"/>
