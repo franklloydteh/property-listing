@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import { RegistrationValidator } from "@/validators/RegistrationValidator";
-import AuthClient from "@/client/AuthClient";
+import UserClient from "@/client/UserClient";
 
 const router = useRouter();
 
@@ -26,7 +26,7 @@ const [confirmField, confirmAttrs] = defineField('confirm');
 
 const onSubmit = handleSubmit(data => {
 
-  AuthClient.register(data)
+  UserClient.register(data)
       .then(res => {
         console.log(res)
         router.push('/my/profile')

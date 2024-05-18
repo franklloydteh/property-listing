@@ -1,7 +1,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-const AuthClient = {
+const UserClient = {
 
     register(data) {
         return axios.post('/api/auth/local/register', data);
@@ -22,13 +22,23 @@ const AuthClient = {
         if (JWT) {
             const decoded = jwtDecode(JWT);
             if (decoded) {
-                const current_time = Date.now() / 1000;
-                if (decoded.exp > current_time) {
+                const currentTime = Date.now() / 1000;
+                if (decoded.exp && decoded.exp > currentTime) {
                     return true;
                 }
             }
         }
         return false;
+    },
+
+    me() {
+        const token = localStorage.getItem('JWT');
+        return axios.get('/api/users/me', { headers: { "Authorization": `Bearer ${token}` } })
+    },
+
+    updateMe(data) {
+        const token = localStorage.getItem('JWT');
+        return axios.put('/api/user/me', data, { headers: { "Authorization": `Bearer ${token}` } })
     },
 
     logout() {
@@ -37,4 +47,4 @@ const AuthClient = {
     }
 }
 
-export default AuthClient;
+export default UserClient;

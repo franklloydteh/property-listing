@@ -4,7 +4,7 @@
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { LoginValidator } from "@/validators/LoginValidator";
-import AuthClient from "@/client/AuthClient";
+import UserClient from "@/client/UserClient";
 
 const { errors, defineField, handleSubmit } = useForm({
   validationSchema: toTypedSchema(LoginValidator),
@@ -15,7 +15,7 @@ const [passwordField, passwordAttrs] = defineField('password');
 
 const onSubmit = handleSubmit(data => {
 
-  AuthClient.login(data.identifier, data.password)
+  UserClient.login(data.identifier, data.password)
       .then(res => {
         window.location.href = '/';
       })

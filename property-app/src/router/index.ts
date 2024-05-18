@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '@/layout/AppLayout.vue';
-import AuthClient from "@/client/AuthClient";
+import UserClient from "@/client/UserClient";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -41,10 +41,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth) {
-        if (AuthClient.isSignedIn()) {
+        if (UserClient.isSignedIn()) {
             next();
         } else {
-            AuthClient.logout();
+            UserClient.logout();
             next("/login");
         }
     } else {

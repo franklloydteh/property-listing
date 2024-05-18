@@ -1,6 +1,6 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
-import AuthClient from "@/client/AuthClient";
+import UserClient from "@/client/UserClient";
 
 const { layoutState } = useLayout();
 
@@ -9,7 +9,7 @@ function close() {
 }
 
 function signOut() {
-  AuthClient.logout();
+  UserClient.logout();
   close();
   window.location.href = '/';
 }

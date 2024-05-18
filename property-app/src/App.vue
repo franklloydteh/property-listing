@@ -6,5 +6,8 @@ import { RouterView } from 'vue-router'
   <RouterView/>
 </template>
 
-<style scoped>
+<style>
+.max-w-screen-lg {
+  max-width: 1024px;
+}
 </style>

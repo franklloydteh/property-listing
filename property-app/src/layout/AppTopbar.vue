@@ -2,7 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
-import AuthClient from "@/client/AuthClient";
+import UserClient from "@/client/UserClient";
 
 
 const { onMenuToggle, onProfileSidebarToggle, onConfigSidebarToggle } = useLayout();
@@ -15,7 +15,7 @@ const isSignedIn = ref(null);
 
 onMounted(() => {
   bindOutsideClickListener();
-  isSignedIn.value = AuthClient.isSignedIn();
+  isSignedIn.value = UserClient.isSignedIn();
   console.log('signedin', isSignedIn.value)
 });
 

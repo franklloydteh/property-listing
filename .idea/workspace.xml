@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Home Page">
-      <change afterPath="$PROJECT_DIR$/property-app/src/client/AuthClient.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property-app/src/validators/LoginValidator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property-app/src/validators/RegistrationValidator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property-strapi/src/extensions/users-permissions/content-types/user/schema.json" afterDir="false" />
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Registration and Login">
+      <change afterPath="$PROJECT_DIR$/property-app/src/validators/ProfileValidator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property-strapi/src/extensions/users-permissions/strapi-server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/client/AuthClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/UserClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/validators/RegistrationValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/validators/RegistrationValidator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/views/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/LoginPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ProfilePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ProfilePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
-      <workItem from="1716005434886" duration="22325000" />
+      <workItem from="1716005434886" duration="32365000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -150,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716019372458</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Registration and Login">
+      <option name="closed" value="true" />
+      <created>1716034217021</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716034217021</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +165,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Home Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Home Page" />
+    <MESSAGE value="Registration and Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registration and Login" />
   </component>
 </project>
