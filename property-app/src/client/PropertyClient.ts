@@ -11,6 +11,11 @@ const PropertyClient = {
         return axios.post('/api/properties', { data: data }, getHeaders());
     },
 
+    findMine() {
+        return axios.get('/api/properties/mine', getHeaders())
+            .then(res => res.data);
+    }
+
 }
 
 export default PropertyClient;

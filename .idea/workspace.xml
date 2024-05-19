@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Various Fixes">
-      <change afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property-app/src/validators/PropertyValidator.ts" afterDir="false" />
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Create Property">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/public/demo/data/products-small.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/public/demo/data/products-small.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/client/UserClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/UserClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/property/content-types/property/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/property/content-types/property/schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/extensions/users-permissions/content-types/user/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/extensions/users-permissions/content-types/user/schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +55,7 @@
       <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\validators" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.strapi develop">
+  <component name="RunManager" selected="npm.vue dev">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -137,7 +135,7 @@
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
       <workItem from="1716005434886" duration="35126000" />
-      <workItem from="1716094673636" duration="9884000" />
+      <workItem from="1716094673636" duration="19013000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -171,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716061666838</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create Property">
+      <option name="closed" value="true" />
+      <created>1716105383753</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716105383753</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +190,7 @@
     <MESSAGE value="Registration and Login" />
     <MESSAGE value="Update Profile" />
     <MESSAGE value="Various Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Various Fixes" />
+    <MESSAGE value="Create Property" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Property" />
   </component>
 </project>

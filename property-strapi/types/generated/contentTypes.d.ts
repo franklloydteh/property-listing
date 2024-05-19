@@ -407,6 +407,7 @@ export interface ApiPropertyProperty extends Schema.CollectionType {
     singularName: 'property';
     pluralName: 'properties';
     displayName: 'Property';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -492,6 +493,11 @@ export interface ApiPropertyProperty extends Schema.CollectionType {
       >;
     country: Attribute.Enumeration<['Spain', 'Philippines']> &
       Attribute.Required;
+    owner: Attribute.Relation<
+      'api::property.property',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,6 +886,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     mobile: Attribute.String;
     city: Attribute.String;
     country: Attribute.Enumeration<['Spain', 'Philippines']>;
+    properties: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::property.property'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

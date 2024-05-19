@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { PropertyService } from '@/service/PropertyService';
 import { useRouter } from "vue-router";
+import PropertyClient from "@/client/PropertyClient";
 
 
 const dataviewValue = ref<any>(null);
@@ -13,7 +14,9 @@ const productService = new PropertyService();
 const router = useRouter();
 
 onMounted(() => {
-  productService.getProductsSmall().then((data) => (dataviewValue.value = data));
+  PropertyClient.findMine().then(res => {
+    dataviewValue.value = res.data
+  })
 });
 
 function update(item) {
@@ -54,7 +57,7 @@ function newListing() {
 
                     <div class="md:w-10rem relative">
                       <img class="block xl:block mx-auto border-round w-full"
-                           :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                           :src="`https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg`"
                            :alt="item.category"/>
                     </div>
 
@@ -64,7 +67,7 @@ function newListing() {
                         <div>
                           <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
                           <div class="text-lg font-medium text-900 mt-2">
-                            {{ item.address.street }}, {{ item.address.city }}, {{ item.address.country }}
+                            {{ item.street }}, {{ item.city }}, {{ item.country }}
                           </div>
                           <span class="text-900 font-medium text-sm">{{ item.area }} m<sup>2</sup></span>
                         </div>
@@ -73,10 +76,10 @@ function newListing() {
                       <div class="flex flex-column md:align-items-end gap-5">
                         <span class="text-xl font-semibold text-900">${{ item.price }}</span>
                         <div class="flex flex-row-reverse md:flex-row gap-2">
-                          <Button :label="item.status" disabled
-                                  severity="contrast"
-                                  outlined>
-                          </Button>
+                          <!--                          <Button :label="item.status" disabled-->
+                          <!--                                  severity="contrast"-->
+                          <!--                                  outlined>-->
+                          <!--                          </Button>-->
                           <Button icon="pi pi-pencil" label="Update"
                                   @click="update(item)"
                                   class="flex-auto md:flex-initial white-space-nowrap">
