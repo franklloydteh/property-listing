@@ -76,10 +76,14 @@ function newListing() {
                       <div class="flex flex-column md:align-items-end gap-5">
                         <span class="text-xl font-semibold text-900">${{ item.price }}</span>
                         <div class="flex flex-row-reverse md:flex-row gap-2">
-                          <!--                          <Button :label="item.status" disabled-->
-                          <!--                                  severity="contrast"-->
-                          <!--                                  outlined>-->
-                          <!--                          </Button>-->
+                          <Button v-if="!item.publishedAt" label="Draft"
+                                  disabled severity="contrast"
+                                  outlined>
+                          </Button>
+                          <Button v-if="item.publishedAt" label="Published"
+                                  disabled severity="primary"
+                                  outlined>
+                          </Button>
                           <Button icon="pi pi-pencil" label="Update"
                                   @click="update(item)"
                                   class="flex-auto md:flex-initial white-space-nowrap">

@@ -6,7 +6,10 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { PropertyValidator } from "@/validators/PropertyValidator";
 import PropertyClient from "@/client/PropertyClient";
 
-const { errors, defineField, handleSubmit, setValues } = useForm({
+const status = ref('Draft');
+const statusOptions = ['Published', 'Draft'];
+
+const { errors, defineField, handleSubmit } = useForm({
   validationSchema: toTypedSchema(PropertyValidator)
 });
 
@@ -24,6 +27,9 @@ const [zipCodeField, zipCodeAttrs] = defineField('zipCode');
 const [countryField, countryAttrs] = defineField('country');
 
 const onSubmit = handleSubmit(data => {
+  if (status.value === 'Draft') {
+    data.publishedAt = null;
+  }
   console.log("Submit", data)
   PropertyClient.create(data)
       .then(res => {
@@ -131,7 +137,7 @@ const onRemoveFile = (removeFile) => {
 
             <div class="col-12 lg:col-4 field">
               <label for="zipCode" class="font-medium text-900"> Zip Code </label>
-              <InputNumber v-model="zipCodeField" v-bind="zipCodeAttrs"  :use-grouping="false"/>
+              <InputNumber v-model="zipCodeField" v-bind="zipCodeAttrs" :use-grouping="false"/>
               <p class="text-red-200">&nbsp; {{ errors['zipCode'] }}</p>
             </div>
 
@@ -195,13 +201,9 @@ const onRemoveFile = (removeFile) => {
 
         <div class="flex-1 w-full lg:w-3 xl:w-4 flex flex-column row-gap-6">
           <div class="border-1 surface-border border-round">
-            <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Publish</span>
+            <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Status</span>
             <div class="p-3">
-              <div class="surface-100 py-2 px-3 flex align-items-center border-round">
-                <span class="text-black-alpha-90 font-bold mr-3">Status:</span>
-                <span class="text-black-alpha-60 font-semibold">Draft</span>
-                <Button type="button" icon="pi pi-fw pi-pencil" class="ml-auto" text rounded></Button>
-              </div>
+              <Dropdown :options="statusOptions" v-model="status"></Dropdown>
             </div>
           </div>
 

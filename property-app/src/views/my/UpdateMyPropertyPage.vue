@@ -7,6 +7,8 @@ import { PropertyValidator } from "@/validators/PropertyValidator";
 import PropertyClient from "@/client/PropertyClient";
 import { useRoute } from 'vue-router'
 
+const status = ref('Draft');
+const statusOptions = ['Published', 'Draft'];
 const route = useRoute();
 
 const { errors, defineField, handleSubmit, setValues } = useForm({
@@ -17,6 +19,9 @@ onMounted(() => {
   const propertyId = route.params.id;
   PropertyClient.findOne(propertyId).then(res => {
     setValues(res.data.attributes);
+    if (res.data.attributes.publishedAt) {
+      status.value = 'Published';
+    }
   });
 });
 
@@ -34,6 +39,12 @@ const [zipCodeField, zipCodeAttrs] = defineField('zipCode');
 const [countryField, countryAttrs] = defineField('country');
 
 const onSubmit = handleSubmit(data => {
+  if (status.value === 'Draft') {
+    data.publishedAt = null;
+  } else {
+    data.publishedAt = new Date()
+  }
+
   console.log("Submit", data)
   const id = route.params.id;
   PropertyClient.update(id, data)
@@ -206,13 +217,9 @@ const onRemoveFile = (removeFile) => {
 
         <div class="flex-1 w-full lg:w-3 xl:w-4 flex flex-column row-gap-6">
           <div class="border-1 surface-border border-round">
-            <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Publish</span>
+            <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Status</span>
             <div class="p-3">
-              <div class="surface-100 py-2 px-3 flex align-items-center border-round">
-                <span class="text-black-alpha-90 font-bold mr-3">Status:</span>
-                <span class="text-black-alpha-60 font-semibold">Draft</span>
-                <Button type="button" icon="pi pi-fw pi-pencil" class="ml-auto" text rounded></Button>
-              </div>
+              <Dropdown :options="statusOptions" v-model="status"></Dropdown>
             </div>
           </div>
 
