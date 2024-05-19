@@ -18,5 +18,19 @@ module.exports = createCoreController('api::property.property', {
     });
   },
 
+  async update(ctx) {
+    const user = ctx.state.user;
+    const propertyId = ctx.params.id;
+
+    const property = await strapi.entityService.findOne('api::property.property', propertyId, {
+      populate: { owner: true },
+    });
+
+    if (property.owner.id === user.id) {
+      return super.update(ctx);
+    } else {
+      return ctx.response.status = 401;
+    }
+  },
 
 });

@@ -1,6 +1,5 @@
 module.exports = (plugin) => {
   plugin.controllers.user.updateMe = async (ctx) => {
-    strapi.log.debug("test")
     if (!ctx.state.user || !ctx.state.user.id) {
       return ctx.response.status = 401;
     }

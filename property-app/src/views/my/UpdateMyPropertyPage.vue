@@ -1,28 +1,53 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
-const product = ref({
-  "id": "1000",
-  "description": "Product Description",
-  "image": "bamboo-watch.jpg",
-  "price": 65000,
-  "category": "Apartment",
-  "area": 100,
-  "bedrooms": 2,
-  "bathrooms": 1,
-  "parking": 1,
-  "address": {
-    "street": "Maria Benlliure",
-    "city": "Gandia",
-    "region": "Velencia",
-    "country": "Spain",
-    "zipCode": 22911
-  },
-  "status": "PUBLISHED"
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { PropertyValidator } from "@/validators/PropertyValidator";
+import PropertyClient from "@/client/PropertyClient";
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
+
+const { errors, defineField, handleSubmit, setValues } = useForm({
+  validationSchema: toTypedSchema(PropertyValidator)
 });
 
-const selectedCategory = ref(null);
+onMounted(() => {
+  const propertyId = route.params.id;
+  PropertyClient.findOne(propertyId).then(res => {
+    setValues(res.data.attributes);
+  });
+});
+
+const [descriptionField, descriptionAttrs] = defineField('description');
+const [priceField, priceAttrs] = defineField('price');
+const [categoryField, categoryAttrs] = defineField('category');
+const [areaField, areaAttrs] = defineField('area');
+const [bedroomsField, bedroomsAttrs] = defineField('bedrooms');
+const [bathroomsField, bathroomsAttrs] = defineField('bathrooms');
+const [parkingField, parkingAttrs] = defineField('parking');
+const [streetField, streetAttrs] = defineField('street');
+const [cityField, cityAttrs] = defineField('city');
+const [regionField, regionAttrs] = defineField('region');
+const [zipCodeField, zipCodeAttrs] = defineField('zipCode');
+const [countryField, countryAttrs] = defineField('country');
+
+const onSubmit = handleSubmit(data => {
+  console.log("Submit", data)
+  const id = route.params.id;
+  PropertyClient.update(id, data)
+      .then(res => {
+        alert("Successfully Saved.")
+      })
+      .catch(function (error) {
+        alert('Save Failed')
+      });
+});
+
+const countries = ['Spain', 'Philippines']
 const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
+
 const fileUploaderRef = ref();
 const uploadFiles = ref([]);
 const onChooseUploadFiles = () => {
@@ -39,9 +64,10 @@ const onRemoveFile = (removeFile) => {
 
 <template>
   <div class="w-full flex justify-content-center align-content-center">
-    <div class="card max-w-screen-lg">
+    <form @submit.prevent="onSubmit" class="card max-w-screen-lg">
+
       <span class="block text-900 font-bold text-3xl mb-4">List Your Property</span>
-      <div class="grid grid-nogutter flex-wrap gap-3 p-fluid">
+      <div class="grid grid-nogutter flex-wrap gap-7 p-fluid">
 
         <div class="col-12 lg:col-8">
           <div class="grid formgrid">
@@ -50,119 +76,135 @@ const onRemoveFile = (removeFile) => {
 
             <div class="col-12 lg:col-4 field">
               <label for="price" class="font-medium text-900"> Price </label>
-              <InputText type="number" placeholder="Price" label="price" v-model="product.price"/>
+              <InputNumber v-model="priceField" v-bind="priceAttrs"/>
+              <p class="text-red-200">&nbsp; {{ errors['price'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="area" class="font-medium text-900"> Area in m<sup>2</sup> </label>
-              <InputText type="number" placeholder="Area" label="area" v-model="product.area"/>
+              <InputNumber v-model="areaField" v-bind="areaAttrs"/>
+              <p class="text-red-200">&nbsp; {{ errors['area'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="category" class="font-medium text-900"> Category </label>
-              <Dropdown :options="categoryOptions" v-model="product.category"
+              <Dropdown :options="categoryOptions"
+                        v-model="categoryField" v-bind="categoryAttrs"
                         placeholder="Select a category"></Dropdown>
+              <p class="text-red-200">&nbsp; {{ errors['category'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="bedrooms" class="font-medium text-900"> Bedrooms </label>
-              <InputText type="number" placeholder="No. of Bedrooms" label="bedrooms" v-model="product.bedrooms"/>
+              <InputNumber v-model="bedroomsField" v-bind="bedroomsAttrs"/>
+              <p class="text-red-200">&nbsp; {{ errors['bedrooms'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="bathrooms" class="font-medium text-900"> Bathrooms </label>
-              <InputText type="number" placeholder="No. of Bedrooms" label="bathrooms" v-model="product.bathrooms"/>
+              <InputNumber v-model="bathroomsField" v-bind="bathroomsAttrs"/>
+              <p class="text-red-200">&nbsp; {{ errors['bathrooms'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="parking" class="font-medium text-900"> Parking </label>
-              <InputText type="number" placeholder="No. of Parking Slots" label="parking" v-model="product.parking"/>
+              <InputNumber v-model="parkingField" v-bind="parkingAttrs"/>
+              <p class="text-red-200">&nbsp; {{ errors['parking'] }}</p>
             </div>
 
             <div class="field col-12">
               <label for="description" class="font-medium text-900"> Property Description </label>
-              <Textarea id="description" type="text" autoResize
-                        v-model="product.description"
+              <Textarea id="description" type="text" autoResize rows="5"
+                        v-model="descriptionField" v-bind="descriptionAttrs"
                         placeholder="Inform the buyer of the nice features and disclose any negatives."></Textarea>
+              <p class="text-red-200">&nbsp; {{ errors['description'] }}</p>
             </div>
 
             <span class="block text-900 font-bold text-xl col-12  pt-2 pb-4">Property Address</span>
 
             <div class="col-12 lg:col-4 field">
               <label for="street" class="font-medium text-900"> Street </label>
-              <InputText type="text" label="street" v-model="product.address.street"/>
+              <InputText v-model="streetField" v-bind="streetAttrs" type="text"/>
+              <p class="text-red-200">&nbsp; {{ errors['street'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="city" class="font-medium text-900"> City </label>
-              <InputText type="text" label="city" v-model="product.address.city"/>
+              <InputText v-model="cityField" v-bind="cityAttrs" type="text"/>
+              <p class="text-red-200">&nbsp; {{ errors['city'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="region" class="font-medium text-900"> Region </label>
-              <InputText type="text" label="region" v-model="product.address.region"/>
+              <InputText v-model="regionField" v-bind="regionAttrs" type="text"/>
+              <p class="text-red-200">&nbsp; {{ errors['region'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="zipCode" class="font-medium text-900"> Zip Code </label>
-              <InputText type="text" label="zipCode" v-model="product.address.zipCode"/>
+              <InputNumber v-model="zipCodeField" v-bind="zipCodeAttrs" :use-grouping="false"/>
+              <p class="text-red-200">&nbsp; {{ errors['zipCode'] }}</p>
             </div>
 
             <div class="col-12 lg:col-4 field">
               <label for="country" class="font-medium text-900"> Country </label>
-              <InputText type="text" label="country" v-model="product.address.country"/>
+              <Dropdown :options="countries"
+                        v-model="countryField" v-bind="countryAttrs"></Dropdown>
+              <p class="text-red-200">&nbsp; {{ errors['country'] }}</p>
             </div>
 
-            <span class="block text-900 font-bold text-xl col-12 pt-2 pb-4">Photos</span>
+            <!--            <span class="block text-900 font-bold text-xl col-12 pt-2 pb-4">Photos</span>-->
 
-            <div class="col-12 mt-3">
-              <FileUpload
-                  ref="fileUploaderRef"
-                  id="files-fileupload"
-                  name="demo[]"
-                  accept="image/*"
-                  customUpload
-                  multiple
-                  auto
-                  class="border-1 surface-border surface-card p-0 border-round"
-                  :maxFileSize="1000000"
-                  @select="onSelectedFiles"
-                  :pt="{ buttonbar: { class: 'hidden' }, root: { style: { backgroundColor: 'rgba(255, 255, 255, 0.05)' } }  }"
-              >
-                <template v-if="uploadFiles.length > 0" #content>
-                  <div class="h-20rem m-1 border-round">
-                    <div v-for="file in uploadFiles" :key="file.name" class="w-full relative border-round p-0"
-                         :style="{ cursor: 'copy' }">
-                      <div
-                          class="remove-file-wrapper h-full relative border-3 border-transparent border-round hover:bg-primary transition-duration-100 cursor-auto">
-                        <img :src="file.objectURL" :alt="file.name" class="w-full border-round"/>
-                        <Button
-                            icon="pi pi-times"
-                            class="remove-button text-sm absolute justify-content-center align-items-center cursor-pointer"
-                            rounded
-                            :style="{ top: '-10px', right: '-10px', display: 'none', width: '3rem' }"
-                            @click="onRemoveFile(file)"
-                        ></Button>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-                <template #empty>
-                  <div v-if="uploadFiles.length < 1" class="h-20rem m-1 border-round">
-                    <div @click="onChooseUploadFiles"
-                         class="flex flex-column w-full h-full justify-content-center align-items-center cursor-pointer"
-                         :style="{ cursor: 'copy' }">
-                      <i class="pi pi-fw pi-file text-4xl text-primary"></i>
-                      <span class="block font-semibold text-900 text-lg mt-3">Drop or select a cover image</span>
-                    </div>
-                  </div>
-                </template>
-              </FileUpload>
-            </div>
+            <!--            <div class="col-12 mt-3">-->
+            <!--              <FileUpload-->
+            <!--                  ref="fileUploaderRef"-->
+            <!--                  id="files-fileupload"-->
+            <!--                  name="demo[]"-->
+            <!--                  accept="image/*"-->
+            <!--                  customUpload-->
+            <!--                  multiple-->
+            <!--                  auto-->
+            <!--                  class="border-1 surface-border surface-card p-0 border-round"-->
+            <!--                  :maxFileSize="1000000"-->
+            <!--                  @select="onSelectedFiles"-->
+            <!--                  :pt="{ buttonbar: { class: 'hidden' }, root: { style: { backgroundColor: 'rgba(255, 255, 255, 0.05)' } }  }"-->
+            <!--              >-->
+            <!--                <template v-if="uploadFiles.length > 0" #content>-->
+            <!--                  <div class="h-20rem m-1 border-round">-->
+            <!--                    <div v-for="file in uploadFiles" :key="file.name" class="w-full relative border-round p-0"-->
+            <!--                         :style="{ cursor: 'copy' }">-->
+            <!--                      <div-->
+            <!--                          class="remove-file-wrapper h-full relative border-3 border-transparent border-round hover:bg-primary transition-duration-100 cursor-auto">-->
+            <!--                        <img :src="file.objectURL" :alt="file.name" class="w-full border-round"/>-->
+            <!--                        <Button-->
+            <!--                            icon="pi pi-times"-->
+            <!--                            class="remove-button text-sm absolute justify-content-center align-items-center cursor-pointer"-->
+            <!--                            rounded-->
+            <!--                            :style="{ top: '-10px', right: '-10px', display: 'none', width: '3rem' }"-->
+            <!--                            @click="onRemoveFile(file)"-->
+            <!--                        ></Button>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </template>-->
+            <!--                <template #empty>-->
+            <!--                  <div v-if="uploadFiles.length < 1" class="h-20rem m-1 border-round">-->
+            <!--                    <div @click="onChooseUploadFiles"-->
+            <!--                         class="flex flex-column w-full h-full justify-content-center align-items-center cursor-pointer"-->
+            <!--                         :style="{ cursor: 'copy' }">-->
+            <!--                      <i class="pi pi-fw pi-file text-4xl text-primary"></i>-->
+            <!--                      <span class="block font-semibold text-900 text-lg mt-3">Drop or select a cover image</span>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </template>-->
+            <!--              </FileUpload>-->
+            <!--            </div>-->
+
+
           </div>
         </div>
 
-        <div class="flex-1 w-full lg:w-3 xl:w-4 flex flex-column row-gap-3">
+        <div class="flex-1 w-full lg:w-3 xl:w-4 flex flex-column row-gap-6">
           <div class="border-1 surface-border border-round">
             <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Publish</span>
             <div class="p-3">
@@ -175,13 +217,13 @@ const onRemoveFile = (removeFile) => {
           </div>
 
           <div class="flex justify-content-between gap-3">
-            <Button class="flex-1" severity="danger" outlined label="Discard" icon="pi pi-fw pi-trash"></Button>
-            <Button class="flex-1" label="Publish" icon="pi pi-fw pi-check"></Button>
+            <Button class="flex-1" severity="danger" outlined label="Delete" icon="pi pi-fw pi-trash"></Button>
+            <Button type="submit" class="flex-1" label="Save" icon="pi pi-fw pi-check"></Button>
           </div>
 
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
