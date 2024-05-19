@@ -25,7 +25,7 @@ function open() {
       </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">
-      <img :src="data.image.data.attributes.url"
+      <img :src="data.image.data.attributes.formats.small.url"
            class="md:ml-auto block md:h-full"
            style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>

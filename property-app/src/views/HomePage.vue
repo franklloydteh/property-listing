@@ -18,14 +18,18 @@ function type(component, type) {
 </script>
 
 <template>
-  <div v-for="component in components">
-    <hero v-if="type(component, 'hero-banner')" :data="component">
-    </hero>
+  <div class="w-full flex justify-content-center align-content-center">
+    <div class="max-w-screen-lg">
+      <div v-for="component in components">
+        <hero v-if="type(component, 'hero-banner')" :data="component">
+        </hero>
 
-    <call-to-action v-if="type(component,'call-to-action')" :data="component">
-    </call-to-action>
+        <call-to-action v-if="type(component,'call-to-action')" :data="component">
+        </call-to-action>
 
-    <features v-if="type(component,'features-list')" :data="component">
-    </features>
+        <features v-if="type(component,'features-list')" :data="component">
+        </features>
+      </div>
+    </div>
   </div>
 </template>
