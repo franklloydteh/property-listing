@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { PropertyService } from "@/service/PropertyService";
+import { ref } from 'vue';
+import PropertyClient from "@/client/PropertyClient";
+import { useRoute } from "vue-router";
 
-const propertyService = new PropertyService();
+const route = useRoute();
+const property = ref();
 
-const property = ref({ address: {} });
-onMounted(() => {
-  propertyService.getProductsSmall().then((data) => (property.value = data[0]));
+PropertyClient.findOne(route.params.id).then(res => {
+  console.log(res);
+  property.value = res.data.attributes;
 });
+
 
 const images = [
   {
@@ -105,7 +108,7 @@ const images = [
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" v-if="property">
     <div class="grid mb-7">
 
       <div class="col-12 lg:col-7">
@@ -115,7 +118,8 @@ const images = [
             <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block"/>
           </template>
           <template #thumbnail="slotProps">
-            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;"/>
+            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt"
+                 style="width: 100%; display: block;"/>
           </template>
         </Galleria>
       </div>
@@ -123,11 +127,11 @@ const images = [
       <div class="col-12 lg:col-4 py-3 lg:pl-6">
 
         <div class="flex align-items-center text-3xl font-medium text-900 mb-4">
-          {{ property.category }} in {{ property.address.city }}
+          {{ property.category }} in {{ property.city }}
         </div>
 
         <div class="flex flex-column mb-5">
-          <p class="text-900 font-bold text-2xl mb-0">${{ property.price }}</p>
+          <p class="text-900 font-bold text-2xl mb-0">${{ property.price.toLocaleString() }}</p>
           <span class="text-900 text-xl">{{ property.area }}m<sup>2</sup></span>
         </div>
 
@@ -143,10 +147,10 @@ const images = [
           </li>
         </ul>
 
-        <p class="text-900 font-bold mt-3 mb-4">Owner</p>
-        <div class="inline-flex align-items-center">
-          <img src="/demo/images/avatar/circle/avatar-f-4.png" class="w-4rem mr-4"/>
-          <span class="text-2xl">Frank Lloyd Teh</span>
+        <p class="text-900 font-bold mt-3 mb-1">Owner</p>
+        <div class="inline-flex align-items-center mb-1">
+<!--          <img src="/demo/images/avatar/circle/avatar-f-4.png" class="w-4rem mr-4"/>-->
+          <span class="text-xl">Frank Lloyd Teh</span>
         </div>
         <Textarea class="w-full" rows="3"></Textarea>
         <Button class="w-full flex justify-content-center">Send Message to Owner</Button>
@@ -158,15 +162,15 @@ const images = [
 
     <div class="text-900 font-bold text-3xl mb-4 mt-2">Address</div>
     <p class="text-600 p-0 mb-0">
-      {{ property.address.street }},
-      {{ property.address.city }} City,
+      {{ property.street }},
+      {{ property.city }} City,
     </p>
     <p class="text-600 p-0 mb-0">
-      {{ property.address.region }},
-      {{ property.address.country }}
+      {{ property.region }},
+      {{ property.country }}
     </p>
     <p class="text-600 p-0 mb-5">
-      {{ property.address.zipCode }}
+      {{ property.zipCode }}
     </p>
 
     <div class="text-900 font-bold text-3xl mb-4 mt-2">Property Details</div>

@@ -22,7 +22,7 @@ const PropertyClient = {
     },
 
     findOne(id) {
-        return axios.get('/api/properties/' + id, getHeaders())
+        return axios.get(`/api/properties/${id}?populate=*` , getHeaders())
             .then(res => res.data);
     },
 

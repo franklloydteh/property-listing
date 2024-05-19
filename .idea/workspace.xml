@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Publish Unpublish">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="searching">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/SearchPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/SearchPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +131,7 @@
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
       <workItem from="1716005434886" duration="35126000" />
-      <workItem from="1716094673636" duration="28590000" />
+      <workItem from="1716094673636" duration="29949000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -202,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716121722995</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="searching">
+      <option name="closed" value="true" />
+      <created>1716125804292</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716125804292</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +222,7 @@
     <MESSAGE value="automatically set owner upon property creation&#10;list only my properties" />
     <MESSAGE value="Update property and limit the update only to owner" />
     <MESSAGE value="Publish Unpublish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Publish Unpublish" />
+    <MESSAGE value="searching" />
+    <option name="LAST_COMMIT_MESSAGE" value="searching" />
   </component>
 </project>
