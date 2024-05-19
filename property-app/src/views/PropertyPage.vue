@@ -2,13 +2,18 @@
 import { ref } from 'vue';
 import PropertyClient from "@/client/PropertyClient";
 import { useRoute } from "vue-router";
+import OwnerClient from "@/client/OwnerClient";
 
 const route = useRoute();
 const property = ref();
+const owner = ref();
 
 PropertyClient.findOne(route.params.id).then(res => {
-  console.log(res);
   property.value = res.data.attributes;
+});
+
+OwnerClient.findByProperty(route.params.id).then(res => {
+  owner.value = res.data;
 });
 
 
@@ -150,7 +155,7 @@ const images = [
         <p class="text-900 font-bold mt-3 mb-1">Owner</p>
         <div class="inline-flex align-items-center mb-1">
 <!--          <img src="/demo/images/avatar/circle/avatar-f-4.png" class="w-4rem mr-4"/>-->
-          <span class="text-xl">Frank Lloyd Teh</span>
+          <span class="text-xl" v-if="owner">{{owner.firstName}} {{owner.lastName}}</span>
         </div>
         <Textarea class="w-full" rows="3"></Textarea>
         <Button class="w-full flex justify-content-center">Send Message to Owner</Button>

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="searching">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Property Page">
+      <change afterPath="$PROJECT_DIR$/property-app/src/client/OwnerClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,8 +108,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.vue dev" />
         <item itemvalue="npm.strapi develop" />
+        <item itemvalue="npm.vue dev" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +131,7 @@
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
       <workItem from="1716005434886" duration="35126000" />
-      <workItem from="1716094673636" duration="29949000" />
+      <workItem from="1716094673636" duration="32219000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -205,7 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716125804292</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Property Page">
+      <option name="closed" value="true" />
+      <created>1716127195920</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716127195920</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Property Page">
+      <option name="closed" value="true" />
+      <created>1716127365023</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716127365023</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +239,7 @@
     <MESSAGE value="Update property and limit the update only to owner" />
     <MESSAGE value="Publish Unpublish" />
     <MESSAGE value="searching" />
-    <option name="LAST_COMMIT_MESSAGE" value="searching" />
+    <MESSAGE value="Property Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Property Page" />
   </component>
 </project>
