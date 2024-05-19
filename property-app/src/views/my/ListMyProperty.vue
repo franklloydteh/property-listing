@@ -74,7 +74,7 @@ function newListing() {
                       </div>
 
                       <div class="flex flex-column md:align-items-end gap-5">
-                        <span class="text-xl font-semibold text-900">${{ item.price }}</span>
+                        <span class="text-xl font-semibold text-900">${{ item.price.toLocaleString() }}</span>
                         <div class="flex flex-row-reverse md:flex-row gap-2">
                           <Button v-if="!item.publishedAt" label="Draft"
                                   disabled severity="contrast"

@@ -4,13 +4,13 @@ import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
 import UserClient from "@/client/UserClient";
 
-
 const { onMenuToggle, onProfileSidebarToggle, onConfigSidebarToggle } = useLayout();
 
 const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
 const router = useRouter();
 
+const searchQuery = ref('');
 const isSignedIn = ref(null);
 
 onMounted(() => {
@@ -56,8 +56,16 @@ const onConfigButtonClick = () => {
 };
 
 function search() {
-  console.log("search")
-  router.push({ path: '/search' })
+  router.push({
+    path: '/search', query: {
+      filters: {
+        $or: [
+          { city: { $startsWithi: searchQuery.value, }, },
+          { region: { $startsWithi: searchQuery.value, }, },
+        ]
+      },
+    }
+  })
 }
 </script>
 
@@ -73,7 +81,7 @@ function search() {
     <form @submit.prevent="search()">
       <IconField iconPosition="left">
         <InputIcon class="pi pi-search"/>
-        <InputText type="text" placeholder="Search" class="w-24rem"/>
+        <InputText type="text" placeholder="Search" class="w-24rem" v-model="searchQuery"/>
       </IconField>
     </form>
 

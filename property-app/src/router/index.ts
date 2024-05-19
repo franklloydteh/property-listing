@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '@/layout/AppLayout.vue';
 import UserClient from "@/client/UserClient";
+import qs from "qs";
 
 const router = createRouter({
+    parseQuery: qs.parse,
+    stringifyQuery: qs.stringify,
     history: createWebHistory(),
     routes: [
         {

@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Update property and limit the update only to owner">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Publish Unpublish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/SearchPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/SearchPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +113,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.strapi develop" />
         <item itemvalue="npm.vue dev" />
+        <item itemvalue="npm.strapi develop" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +136,7 @@
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
       <workItem from="1716005434886" duration="35126000" />
-      <workItem from="1716094673636" duration="24520000" />
+      <workItem from="1716094673636" duration="28590000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -190,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716119805715</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Publish Unpublish">
+      <option name="closed" value="true" />
+      <created>1716121722995</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716121722995</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +218,7 @@
     <MESSAGE value="Create Property" />
     <MESSAGE value="automatically set owner upon property creation&#10;list only my properties" />
     <MESSAGE value="Update property and limit the update only to owner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update property and limit the update only to owner" />
+    <MESSAGE value="Publish Unpublish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Publish Unpublish" />
   </component>
 </project>
