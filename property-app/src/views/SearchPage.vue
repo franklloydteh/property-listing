@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useRoute } from "vue-router";
 import PropertyClient from "@/client/PropertyClient";
 
 const route = useRoute();
-const properties = ref([]);
+const properties = ref<any[]>([]);
 
 watch(route, (to) => {
   PropertyClient.find(to.query).then(res => {
@@ -30,8 +30,7 @@ watch(route, (to) => {
                     :style="{ left: '1rem', top: '1rem' }">
                 {{ item.attributes.category }}
               </span>
-              <img :src="'https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg' " class="w-full"
-                   :alt="i"/>
+              <img :src="'https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg' " class="w-full"/>
             </div>
             <div class="flex justify-content-between align-items-center mb-3">
               <span class="text-900 font-medium text-xl">{{ item.attributes.street }}, {{ item.attributes.city }}</span>
