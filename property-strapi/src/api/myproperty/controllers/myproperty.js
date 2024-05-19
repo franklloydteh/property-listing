@@ -11,7 +11,8 @@ module.exports = {
 
     // TODO: attach the filters from context
     const entries = await strapi.entityService.findMany('api::property.property', {
-      filters: { owner: user.id }
+      filters: { owner: user.id },
+      populate: ['images']
     });
 
     ctx.body = {

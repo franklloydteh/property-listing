@@ -56,9 +56,12 @@ function newListing() {
                        :class="{ 'border-top-1 surface-border': index !== 0 }">
 
                     <div class="md:w-10rem relative">
-                      <img class="block xl:block mx-auto border-round w-full"
-                           :src="`https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg`"
-                           :alt="item.category"/>
+                      <div class="card-image"
+                           v-if="item.images && item.images && item.images.length"
+                           :style="{  backgroundImage : 'url(' + item.images[0].formats.thumbnail.url+ ')' } "></div>
+                      <div class="card-image"
+                           v-else
+                           :style="{  backgroundImage : 'url(https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg)' } "></div>
                     </div>
 
                     <div
@@ -105,3 +108,15 @@ function newListing() {
     </div>
   </div>
 </template>
+
+<style scoped>
+.card-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  --div-width: 140px;
+  width: var(--div-width);
+  height: calc(var(--div-width) * 3 / 4);
+}
+
+</style>

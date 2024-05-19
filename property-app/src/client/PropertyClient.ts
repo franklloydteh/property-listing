@@ -40,7 +40,9 @@ const PropertyClient = {
     },
 
     find(query: any) {
+        query.populate = ['images'];
         const queryString = qs.stringify(query, { encodeValuesOnly: true })
+        console.log(queryString)
         return axios.get('/api/properties?' + queryString)
             .then(res => res.data);
     }
