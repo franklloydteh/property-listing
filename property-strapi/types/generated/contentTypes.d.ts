@@ -498,6 +498,7 @@ export interface ApiPropertyProperty extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

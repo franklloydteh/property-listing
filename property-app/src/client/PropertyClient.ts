@@ -8,8 +8,21 @@ function getHeaders() {
 
 const PropertyClient = {
 
-    create(data) {
-        return axios.post('/api/properties', { data: data }, getHeaders());
+    create(data, files) {
+        const formData = new FormData();
+
+        formData.append('data', JSON.stringify(data));
+
+        files.forEach((file) => {
+            // 'images' will be the Model Attribute
+            formData.append(`files.images`, file, file.name);
+        });
+
+        return fetch('/api/properties', {
+            method: 'post',
+            headers: getHeaders().headers,
+            body: formData
+        });
     },
 
     update(id, data) {
@@ -22,7 +35,7 @@ const PropertyClient = {
     },
 
     findOne(id) {
-        return axios.get(`/api/properties/${id}?populate=*` , getHeaders())
+        return axios.get(`/api/properties/${id}?populate=*`, getHeaders())
             .then(res => res.data);
     },
 

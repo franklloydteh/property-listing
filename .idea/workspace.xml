@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Property Page">
-      <change afterPath="$PROJECT_DIR$/property-app/src/client/OwnerClient.ts" afterDir="false" />
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Public Owner Info">
+      <change afterPath="$PROJECT_DIR$/property-app/src/client/UploadClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/property/content-types/property/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/property/content-types/property/schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +134,7 @@
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
       <workItem from="1716005434886" duration="35126000" />
-      <workItem from="1716094673636" duration="32219000" />
+      <workItem from="1716094673636" duration="37965000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -221,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716127365023</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Public Owner Info">
+      <option name="closed" value="true" />
+      <created>1716129437279</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716129437279</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +251,7 @@
     <MESSAGE value="Publish Unpublish" />
     <MESSAGE value="searching" />
     <MESSAGE value="Property Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Property Page" />
+    <MESSAGE value="Public Owner Info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Public Owner Info" />
   </component>
 </project>

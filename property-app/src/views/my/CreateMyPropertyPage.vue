@@ -6,8 +6,12 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { PropertyValidator } from "@/validators/PropertyValidator";
 import PropertyClient from "@/client/PropertyClient";
 
+const countries = ['Spain', 'Philippines']
+const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
 const status = ref('Draft');
 const statusOptions = ['Published', 'Draft'];
+const fileUploaderRef = ref();
+const uploadFiles = ref([]);
 
 const { errors, defineField, handleSubmit } = useForm({
   validationSchema: toTypedSchema(PropertyValidator)
@@ -30,9 +34,9 @@ const onSubmit = handleSubmit(data => {
   if (status.value === 'Draft') {
     data.publishedAt = null;
   }
-  console.log("Submit", data)
-  PropertyClient.create(data)
+  PropertyClient.create(data, uploadFiles.value)
       .then(res => {
+        console.log(res)
         alert("Successfully Saved.")
       })
       .catch(function (error) {
@@ -40,11 +44,6 @@ const onSubmit = handleSubmit(data => {
       });
 });
 
-const countries = ['Spain', 'Philippines']
-const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
-
-const fileUploaderRef = ref();
-const uploadFiles = ref([]);
 const onChooseUploadFiles = () => {
   fileUploaderRef.value.choose();
 };
@@ -54,6 +53,10 @@ const onSelectedFiles = (event) => {
 const onRemoveFile = (removeFile) => {
   uploadFiles.value = uploadFiles.value.filter((file) => file.name !== removeFile.name);
 };
+
+function displayFiles() {
+  console.log(uploadFiles.value)
+}
 
 </script>
 
@@ -148,52 +151,56 @@ const onRemoveFile = (removeFile) => {
               <p class="text-red-200">&nbsp; {{ errors['country'] }}</p>
             </div>
 
-            <!--            <span class="block text-900 font-bold text-xl col-12 pt-2 pb-4">Photos</span>-->
+            <span class="block text-900 font-bold text-xl col-12 pt-2 pb-4">Photos</span>
 
-            <!--            <div class="col-12 mt-3">-->
-            <!--              <FileUpload-->
-            <!--                  ref="fileUploaderRef"-->
-            <!--                  id="files-fileupload"-->
-            <!--                  name="demo[]"-->
-            <!--                  accept="image/*"-->
-            <!--                  customUpload-->
-            <!--                  multiple-->
-            <!--                  auto-->
-            <!--                  class="border-1 surface-border surface-card p-0 border-round"-->
-            <!--                  :maxFileSize="1000000"-->
-            <!--                  @select="onSelectedFiles"-->
-            <!--                  :pt="{ buttonbar: { class: 'hidden' }, root: { style: { backgroundColor: 'rgba(255, 255, 255, 0.05)' } }  }"-->
-            <!--              >-->
-            <!--                <template v-if="uploadFiles.length > 0" #content>-->
-            <!--                  <div class="h-20rem m-1 border-round">-->
-            <!--                    <div v-for="file in uploadFiles" :key="file.name" class="w-full relative border-round p-0"-->
-            <!--                         :style="{ cursor: 'copy' }">-->
-            <!--                      <div-->
-            <!--                          class="remove-file-wrapper h-full relative border-3 border-transparent border-round hover:bg-primary transition-duration-100 cursor-auto">-->
-            <!--                        <img :src="file.objectURL" :alt="file.name" class="w-full border-round"/>-->
-            <!--                        <Button-->
-            <!--                            icon="pi pi-times"-->
-            <!--                            class="remove-button text-sm absolute justify-content-center align-items-center cursor-pointer"-->
-            <!--                            rounded-->
-            <!--                            :style="{ top: '-10px', right: '-10px', display: 'none', width: '3rem' }"-->
-            <!--                            @click="onRemoveFile(file)"-->
-            <!--                        ></Button>-->
-            <!--                      </div>-->
-            <!--                    </div>-->
-            <!--                  </div>-->
-            <!--                </template>-->
-            <!--                <template #empty>-->
-            <!--                  <div v-if="uploadFiles.length < 1" class="h-20rem m-1 border-round">-->
-            <!--                    <div @click="onChooseUploadFiles"-->
-            <!--                         class="flex flex-column w-full h-full justify-content-center align-items-center cursor-pointer"-->
-            <!--                         :style="{ cursor: 'copy' }">-->
-            <!--                      <i class="pi pi-fw pi-file text-4xl text-primary"></i>-->
-            <!--                      <span class="block font-semibold text-900 text-lg mt-3">Drop or select a cover image</span>-->
-            <!--                    </div>-->
-            <!--                  </div>-->
-            <!--                </template>-->
-            <!--              </FileUpload>-->
-            <!--            </div>-->
+            <div>
+              <a @click="displayFiles">log files</a>
+            </div>
+
+            <div class="col-12 mt-3">
+              <FileUpload
+                  ref="fileUploaderRef"
+                  id="files-fileupload"
+                  name="demo[]"
+                  accept="image/*"
+                  customUpload
+                  multiple
+                  auto
+                  class="border-1 surface-border surface-card p-0 border-round"
+                  :maxFileSize="1000000"
+                  @select="onSelectedFiles"
+                  :pt="{ buttonbar: { class: 'hidden' }, root: { style: { backgroundColor: 'rgba(255, 255, 255, 0.05)' } }  }"
+              >
+                <template v-if="uploadFiles.length > 0" #content>
+                  <div class="h-20rem m-1 border-round">
+                    <div v-for="file in uploadFiles" :key="file.name" class="w-full relative border-round p-0"
+                         :style="{ cursor: 'copy' }">
+                      <div
+                          class="remove-file-wrapper h-full relative border-3 border-transparent border-round hover:bg-primary transition-duration-100 cursor-auto">
+                        <img :src="file.objectURL" :alt="file.name" class="w-full border-round"/>
+                        <Button
+                            icon="pi pi-times"
+                            class="remove-button text-sm absolute justify-content-center align-items-center cursor-pointer"
+                            rounded
+                            :style="{ top: '-10px', right: '-10px', display: 'none', width: '3rem' }"
+                            @click="onRemoveFile(file)"
+                        ></Button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template #empty>
+                  <div v-if="uploadFiles.length < 1" class="h-20rem m-1 border-round">
+                    <div @click="onChooseUploadFiles"
+                         class="flex flex-column w-full h-full justify-content-center align-items-center cursor-pointer"
+                         :style="{ cursor: 'copy' }">
+                      <i class="pi pi-fw pi-file text-4xl text-primary"></i>
+                      <span class="block font-semibold text-900 text-lg mt-3">Drop or select a cover image</span>
+                    </div>
+                  </div>
+                </template>
+              </FileUpload>
+            </div>
 
 
           </div>
