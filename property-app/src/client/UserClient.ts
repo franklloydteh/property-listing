@@ -1,6 +1,11 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
+function getHeaders() {
+    const token = localStorage.getItem('JWT');
+    return { headers: { "Authorization": `Bearer ${token}` } };
+}
+
 const UserClient = {
 
     register(data) {
@@ -38,13 +43,11 @@ const UserClient = {
     },
 
     me() {
-        const token = localStorage.getItem('JWT');
-        return axios.get('/api/users/me', { headers: { "Authorization": `Bearer ${token}` } })
+        return axios.get('/api/users/me', getHeaders())
     },
 
     updateMe(data) {
-        const token = localStorage.getItem('JWT');
-        return axios.put('/api/user/me', data, { headers: { "Authorization": `Bearer ${token}` } })
+        return axios.put('/api/user/me', data, getHeaders())
     },
 
     currentUser() {

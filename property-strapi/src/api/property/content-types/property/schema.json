@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "Property"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 1000,
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "max": 9000000000000000,
+      "required": true,
+      "min": 1
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "House",
+        "Apartment",
+        "Building",
+        "Storage Room",
+        "Land"
+      ],
+      "required": true
+    },
+    "area": {
+      "type": "decimal",
+      "required": true,
+      "max": 9000000000000000,
+      "min": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "required": true,
+      "max": 9000000000000000,
+      "min": 0
+    },
+    "bathrooms": {
+      "type": "integer",
+      "required": true,
+      "max": 9000000000000000,
+      "min": 0
+    },
+    "parking": {
+      "type": "integer",
+      "required": true,
+      "max": 9000000000000000,
+      "min": 0
+    },
+    "street": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "region": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "zipCode": {
+      "type": "integer",
+      "required": true,
+      "max": 9000000000000000,
+      "min": 1
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "Spain",
+        "Philippines"
+      ],
+      "required": true
+    }
+  }
+}

@@ -20,66 +20,81 @@ function update(item) {
   router.push({ path: `/my/property/${item.id}` })
 }
 
+function newListing() {
+  router.push({ path: '/my/property/create' })
+}
+
 </script>
 
 <template>
-  <div class="grid">
-    <div class="col-12">
-      <div class="card">
-        <h5>My Properties</h5>
+  <div class="w-full flex flex-column align-items-center">
 
-        <DataView :value="dataviewValue"
-                  :layout="layout" :paginator="false" :sortOrder="sortOrder"
-                  :sortField="sortField"
-                  :dataKey="'id'">
+    <div class="w-full max-w-screen-lg flex justify-content-end" style="padding: 14px">
+      <Button icon="pi pi-plus" label="List Property"
+              @click="newListing()"
+              class="max-w-12rem white-space-nowrap">
+      </Button>
+    </div>
 
-          <template #list="slotProps">
-            <div class="grid grid-nogutter">
-              <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
-                <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3"
-                     :class="{ 'border-top-1 surface-border': index !== 0 }">
+    <div class="grid max-w-screen-lg">
+      <div class="col-12">
+        <div class="card">
+          <h5>My Properties</h5>
 
-                  <div class="md:w-10rem relative">
-                    <img class="block xl:block mx-auto border-round w-full"
-                         :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
-                         :alt="item.category"/>
-                  </div>
+          <DataView :value="dataviewValue"
+                    :layout="layout" :paginator="false" :sortOrder="sortOrder"
+                    :sortField="sortField"
+                    :dataKey="'id'">
 
-                  <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
-                    <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
-                      <div>
-                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
-                        <div class="text-lg font-medium text-900 mt-2">
-                          {{ item.address.street }}, {{ item.address.city }}, {{ item.address.country }}
+            <template #list="slotProps">
+              <div class="grid grid-nogutter">
+                <div v-for="(item, index) in slotProps.items" :key="index" class="col-12">
+                  <div class="flex flex-column sm:flex-row sm:align-items-center p-4 gap-3"
+                       :class="{ 'border-top-1 surface-border': index !== 0 }">
+
+                    <div class="md:w-10rem relative">
+                      <img class="block xl:block mx-auto border-round w-full"
+                           :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                           :alt="item.category"/>
+                    </div>
+
+                    <div
+                        class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
+                      <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
+                        <div>
+                          <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                          <div class="text-lg font-medium text-900 mt-2">
+                            {{ item.address.street }}, {{ item.address.city }}, {{ item.address.country }}
+                          </div>
+                          <span class="text-900 font-medium text-sm">{{ item.area }} m<sup>2</sup></span>
                         </div>
-                        <span class="text-900 font-medium text-sm">{{ item.area }} m<sup>2</sup></span>
                       </div>
-                    </div>
 
-                    <div class="flex flex-column md:align-items-end gap-5">
-                      <span class="text-xl font-semibold text-900">${{ item.price }}</span>
-                      <div class="flex flex-row-reverse md:flex-row gap-2">
-                        <Button :label="item.status" disabled
-                                severity="contrast"
-                                outlined>
-                        </Button>
-                        <Button icon="pi pi-pencil" label="Update"
-                                @click="update(item)"
-                                class="flex-auto md:flex-initial white-space-nowrap">
-                        </Button>
+                      <div class="flex flex-column md:align-items-end gap-5">
+                        <span class="text-xl font-semibold text-900">${{ item.price }}</span>
+                        <div class="flex flex-row-reverse md:flex-row gap-2">
+                          <Button :label="item.status" disabled
+                                  severity="contrast"
+                                  outlined>
+                          </Button>
+                          <Button icon="pi pi-pencil" label="Update"
+                                  @click="update(item)"
+                                  class="flex-auto md:flex-initial white-space-nowrap">
+                          </Button>
+                        </div>
                       </div>
-                    </div>
 
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </template>
+            </template>
 
-        </DataView>
+          </DataView>
+        </div>
       </div>
+
+
     </div>
-
-
   </div>
 </template>

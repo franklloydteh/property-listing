@@ -10,13 +10,11 @@
       "bedrooms": 2,
       "bathrooms": 1,
       "parking": 1,
-      "address": {
-        "street": "Maria Benlliure",
-        "city": "Gandia",
-        "region": "Velencia",
-        "country": "Spain",
-        "zipCode": 22911
-      },
+      "street": "Maria Benlliure",
+      "city": "Gandia",
+      "region": "Velencia",
+      "country": "Spain",
+      "zipCode": 22911,
       "status": "PUBLISHED"
     },
     {
@@ -29,13 +27,11 @@
       "bedrooms": 4,
       "bathrooms": 2,
       "parking": 1,
-      "address": {
-        "street": "Playa de Sagunt",
-        "city": "Sagunt",
-        "region": "Velencia",
-        "country": "Spain",
-        "zipCode": 62343
-      },
+      "street": "Playa de Sagunt",
+      "city": "Sagunt",
+      "region": "Velencia",
+      "country": "Spain",
+      "zipCode": 62343,
       "status": "DRAFT"
     }
   ]

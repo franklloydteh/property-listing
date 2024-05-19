@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Update Profile">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Various Fixes">
+      <change afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/property-app/src/validators/PropertyValidator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/public/demo/data/products-small.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/public/demo/data/products-small.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property-app/src/client/UserClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/UserClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppProfileSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/AppTopbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/layout/composables/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/layout/composables/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/validators/ProfileValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/validators/ProfileValidator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/RegistrationPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/CreateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/frank/Projects/strapi/property-listing/property-app/src/validators",
+    "last_opened_file_path": "C:/Users/frank/Projects/strapi/property-listing/property-app/src/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,11 +53,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\validators" />
       <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\client" />
+      <recent name="C:\Users\frank\Projects\strapi\property-listing\property-app\src\validators" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.vue dev">
+  <component name="RunManager" selected="npm.strapi develop">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -112,8 +114,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.vue dev" />
         <item itemvalue="npm.strapi develop" />
+        <item itemvalue="npm.vue dev" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +136,8 @@
       <option name="presentableId" value="Default" />
       <updated>1715968842345</updated>
       <workItem from="1715968843696" duration="2082000" />
-      <workItem from="1716005434886" duration="35027000" />
+      <workItem from="1716005434886" duration="35126000" />
+      <workItem from="1716094673636" duration="9884000" />
     </task>
     <task id="LOCAL-00001" summary="Home Page">
       <option name="closed" value="true" />
@@ -160,16 +163,27 @@
       <option name="project" value="LOCAL" />
       <updated>1716058942029</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Various Fixes">
+      <option name="closed" value="true" />
+      <created>1716061666838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716061666838</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Home Page" />
     <MESSAGE value="Registration and Login" />
     <MESSAGE value="Update Profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Profile" />
+    <MESSAGE value="Various Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Various Fixes" />
   </component>
 </project>
