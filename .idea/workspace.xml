@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Display images">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Send message to email">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/client/OwnerClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/OwnerClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/PropertyPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/config/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/config/plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/owner/controllers/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/owner/controllers/owner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/owner/routes/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/owner/routes/owner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/types/generated/contentTypes.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716147556861</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Send message to email">
+      <option name="closed" value="true" />
+      <created>1716206529205</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716206529205</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +277,7 @@
     <MESSAGE value="Public Owner Info" />
     <MESSAGE value="Upload Property Images" />
     <MESSAGE value="Display images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Display images" />
+    <MESSAGE value="Send message to email" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send message to email" />
   </component>
 </project>

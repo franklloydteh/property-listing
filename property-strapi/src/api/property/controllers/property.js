@@ -33,4 +33,22 @@ module.exports = createCoreController('api::property.property', {
     }
   },
 
+  async delete(ctx) {
+    const user = ctx.state.user;
+    const propertyId = ctx.params.id;
+
+    const property = await strapi.entityService.findOne('api::property.property', propertyId, {
+      populate: { owner: true },
+    });
+
+    strapi.log.debug('user ' +user.id )
+    strapi.log.debug('owner '+ property.owner.id)
+
+    if (property.owner.id === user.id) {
+      return super.delete(ctx);
+    } else {
+      return ctx.response.status = 401;
+    }
+  },
+
 });

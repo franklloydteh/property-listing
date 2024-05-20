@@ -39,7 +39,7 @@ function newListing() {
       </Button>
     </div>
 
-    <div class="grid max-w-screen-lg">
+    <div class="grid max-w-screen-lg w-full">
       <div class="col-12">
         <div class="card">
           <h5>My Properties</h5>

@@ -45,6 +45,11 @@ const PropertyClient = {
         console.log(queryString)
         return axios.get('/api/properties?' + queryString)
             .then(res => res.data);
+    },
+
+    delete(propertyId) {
+        return axios.delete('/api/properties/' + propertyId, getHeaders())
+            .then(res => res.data);
     }
 }
 

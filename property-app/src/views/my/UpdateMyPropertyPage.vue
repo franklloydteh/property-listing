@@ -5,11 +5,14 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { PropertyValidator } from "@/validators/PropertyValidator";
 import PropertyClient from "@/client/PropertyClient";
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const countries = ['Spain', 'Philippines']
+const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
 const status = ref('Draft');
 const statusOptions = ['Published', 'Draft'];
 const route = useRoute();
+const router = useRouter();
 
 const { errors, defineField, handleSubmit, setValues } = useForm({
   validationSchema: toTypedSchema(PropertyValidator)
@@ -45,9 +48,8 @@ const onSubmit = handleSubmit(data => {
     data.publishedAt = new Date()
   }
 
-  console.log("Submit", data)
-  const id = route.params.id;
-  PropertyClient.update(id, data)
+  const propertyId = route.params.id;
+  PropertyClient.update(propertyId, data)
       .then(res => {
         alert("Successfully Saved.")
       })
@@ -56,8 +58,16 @@ const onSubmit = handleSubmit(data => {
       });
 });
 
-const countries = ['Spain', 'Philippines']
-const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
+function deleteProperty() {
+  const propertyId = route.params.id;
+  if (confirm("Are you sure you want to delete property?")) {
+    PropertyClient.delete(propertyId).then(() => {
+      router.push({ path: "/my/property/list" });
+    })
+  }
+
+}
+
 
 const fileUploaderRef = ref();
 const uploadFiles = ref([]);
@@ -224,8 +234,13 @@ const onRemoveFile = (removeFile) => {
           </div>
 
           <div class="flex justify-content-between gap-3">
-            <Button class="flex-1" severity="danger" outlined label="Delete" icon="pi pi-fw pi-trash"></Button>
-            <Button type="submit" class="flex-1" label="Save" icon="pi pi-fw pi-check"></Button>
+            <Button @click="deleteProperty()"
+                    type="button" class="flex-1" severity="danger" outlined
+                    label="Delete" icon="pi pi-fw pi-trash">
+            </Button>
+            <Button type="submit" class="flex-1"
+                    label="Save" icon="pi pi-fw pi-check">
+            </Button>
           </div>
 
         </div>
