@@ -7,6 +7,7 @@ import OwnerClient from "@/client/OwnerClient";
 const route = useRoute();
 const property = ref();
 const owner = ref();
+const message = ref('Hi, I am interested in...');
 
 PropertyClient.findOne(route.params.id).then(res => {
   property.value = res.data.attributes;
@@ -15,6 +16,12 @@ PropertyClient.findOne(route.params.id).then(res => {
 OwnerClient.findByProperty(route.params.id).then(res => {
   owner.value = res.data;
 });
+
+function sendMessage() {
+  if (confirm("Are you sure you want to message?")) {
+    OwnerClient.messageForProperty(route.params.id, message.value);
+  }
+}
 
 </script>
 
@@ -61,11 +68,11 @@ OwnerClient.findByProperty(route.params.id).then(res => {
 
         <p class="text-900 font-bold mt-3 mb-1">Owner</p>
         <div class="inline-flex align-items-center mb-1">
-          <!--          <img src="/demo/images/avatar/circle/avatar-f-4.png" class="w-4rem mr-4"/>-->
           <span class="text-xl" v-if="owner">{{ owner.firstName }} {{ owner.lastName }}</span>
         </div>
-        <Textarea class="w-full" rows="3"></Textarea>
-        <Button class="w-full flex justify-content-center">Send Message to Owner</Button>
+        <Textarea class="w-full" rows="3" v-model="message">
+        </Textarea>
+        <Button class="w-full flex justify-content-center" @click="sendMessage()">Send Message to Owner</Button>
 
 
       </div>

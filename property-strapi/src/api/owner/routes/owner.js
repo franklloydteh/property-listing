@@ -9,5 +9,14 @@ module.exports = {
        middlewares: [],
      },
     },
+    {
+      method: 'POST',
+      path: '/properties/:propertyId/owner/message',
+      handler: 'owner.messageForProperty',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };

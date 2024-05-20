@@ -12,6 +12,11 @@ const PropertyClient = {
             .then(res => res.data);
     },
 
+    messageForProperty(propertyId, message) {
+        return axios.post(`/api/properties/${propertyId}/owner/message`,
+            { message: message }, getHeaders())
+            .then(res => res.data);
+    }
 }
 
 export default PropertyClient;
