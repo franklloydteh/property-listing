@@ -5,6 +5,21 @@
  */
 
 module.exports = {
+
+  findMyProperties: async (ctx, next) => {
+    const user = ctx.state.user;
+
+    // TODO: attach the filters from context
+    const entries = await strapi.entityService.findMany('api::property.property', {
+      filters: { owner: user.id },
+      populate: ['images']
+    });
+
+    ctx.body = {
+      data: entries
+    }
+  },
+
   findByProperty: async (ctx, next) => {
     try {
       const propertyId = ctx.params.propertyId;

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Send message to email">
+    <list default="true" id="9e6da691-b3a3-4867-aff8-aeb407484630" name="Changes" comment="Delete Property">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/client/PropertyClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/ListMyProperty.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/property-app/src/views/my/UpdateMyPropertyPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/property/controllers/property.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/myproperty/controllers/myproperty.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/myproperty/routes/myproperty.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/myproperty/services/myproperty.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/owner/controllers/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/owner/controllers/owner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property-strapi/src/api/owner/routes/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/property-strapi/src/api/owner/routes/owner.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716206529205</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Delete Property">
+      <option name="closed" value="true" />
+      <created>1716208641201</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716208641201</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +287,7 @@
     <MESSAGE value="Upload Property Images" />
     <MESSAGE value="Display images" />
     <MESSAGE value="Send message to email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send message to email" />
+    <MESSAGE value="Delete Property" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete Property" />
   </component>
 </project>

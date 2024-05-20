@@ -1,6 +1,15 @@
 module.exports = {
   routes: [
     {
+      method: 'GET',
+      path: '/properties/mine',
+      handler: 'owner.findMyProperties',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
+    {
      method: 'GET',
      path: '/properties/:propertyId/owner',
      handler: 'owner.findByProperty',
