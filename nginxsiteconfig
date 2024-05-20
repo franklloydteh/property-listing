@@ -1,0 +1,14 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name realista.franklloydteh.com
+
+        root    /root/property-listing/property-app/dist;
+        index   index.html;
+
+        location / {
+                root /var/www/myapp/dist;
+                try_files $uri  /index.html;
+        }
+}
