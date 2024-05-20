@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'strapi',
       script: 'npm',
-      args: 'develop',
+      args: 'run develop',
     },
   ],
 };
