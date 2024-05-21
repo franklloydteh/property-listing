@@ -13,10 +13,11 @@ const PropertyClient = {
 
         formData.append('data', JSON.stringify(data));
 
-        files.forEach((file) => {
-            // 'images' will be the Model Attribute
-            formData.append(`files.images`, file, file.name);
-        });
+        if (files && files.length)
+            files.forEach((file) => {
+                // 'images' will be the Model Attribute
+                formData.append(`files.images`, file, file.name);
+            });
 
         return fetch('/api/properties', {
             method: 'post',
@@ -25,8 +26,22 @@ const PropertyClient = {
         });
     },
 
-    update(id, data) {
-        return axios.put('/api/properties/' + id, { data: data }, getHeaders());
+    update(id, data, files) {
+        const formData = new FormData();
+
+        formData.append('data', JSON.stringify(data));
+
+        if (files && files.length)
+            files.forEach((file) => {
+                if (file.objectURL) // check if file is for upload and not already uploaded
+                    formData.append(`files.images`, file, file.name);
+            });
+
+        return fetch('/api/properties/' + id, {
+            method: 'put',
+            headers: getHeaders().headers,
+            body: formData
+        });
     },
 
     findMine() {

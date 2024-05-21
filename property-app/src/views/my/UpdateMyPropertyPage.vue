@@ -29,23 +29,21 @@ onMounted(() => {
     }
 
     const images = res.data.attributes.images.data;
-    console.log(images)
-    images.forEach(img => {
-      fetch(img.attributes.url)
-          .then(async response => {
-            const blob = await response.blob()
-            var reader = new FileReader();
-            reader.readAsDataURL(blob);
-            reader.onloadend = function() {
-              var base64data = reader.result;
-              console.log(base64data);
-              uploadFiles.value.push({
-                name: img.attributes.name,
-                base64data: base64data
-              })
-            }
-          })
-    })
+    if (images) {
+      images.forEach(img => {
+        fetch(img.attributes.url)
+            .then(async response => {
+              const blob = await response.blob()
+              const reader = new FileReader();
+              reader.readAsDataURL(blob);
+              reader.onloadend = function () {
+                const base64data = reader.result;
+                uploadFiles.value.push({ name: img.attributes.name, base64data: base64data })
+              }
+            })
+      });
+    }
+
   });
 });
 
@@ -70,7 +68,7 @@ const onSubmit = handleSubmit(data => {
   }
 
   const propertyId = route.params.id;
-  PropertyClient.update(propertyId, data)
+  PropertyClient.update(propertyId, data, uploadFiles.value)
       .then(res => {
         alert("Successfully Saved.")
       })
@@ -198,7 +196,7 @@ const onRemoveFile = (removeFile) => {
             <div class="col-12 mt-3">
 
               <div class="col-4 mb-5 pl-0">
-              <Button @click="fileUploaderRef.choose()" label="Upload"></Button>
+                <Button @click="fileUploaderRef.choose()" label="Upload"></Button>
               </div>
 
               <FileUpload
