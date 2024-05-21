@@ -15,6 +15,7 @@ const route = useRoute();
 const router = useRouter();
 const fileUploaderRef = ref();
 const uploadFiles = ref([]);
+let images = [];
 
 const { errors, defineField, handleSubmit, setValues } = useForm({
   validationSchema: toTypedSchema(PropertyValidator)
@@ -28,7 +29,8 @@ onMounted(() => {
       status.value = 'Published';
     }
 
-    const images = res.data.attributes.images.data;
+    images = res.data.attributes.images.data;
+    console.log(images)
     if (images) {
       images.forEach(img => {
         fetch(img.attributes.url)
@@ -38,7 +40,7 @@ onMounted(() => {
               reader.readAsDataURL(blob);
               reader.onloadend = function () {
                 const base64data = reader.result;
-                uploadFiles.value.push({ name: img.attributes.name, base64data: base64data })
+                uploadFiles.value.push({ id: img.id, name: img.attributes.name, base64data: base64data })
               }
             })
       });
@@ -61,11 +63,17 @@ const [zipCodeField, zipCodeAttrs] = defineField('zipCode');
 const [countryField, countryAttrs] = defineField('country');
 
 const onSubmit = handleSubmit(data => {
-  if (status.value === 'Draft') {
-    data.publishedAt = null;
-  } else {
-    data.publishedAt = new Date()
-  }
+  data.publishedAt = status.value === 'Draft' ? null : new Date();
+
+  data.images = []; // I had to guess that its just images and not 'images.data'
+  if (images && images.length)
+    images.forEach(i => {
+      if (uploadFiles.value.find(f => f.id === i.id)) {
+        data.images.push({ id: i.id }) // It seems that it only needs the id
+      }
+    });
+  console.log(data.images)
+
 
   const propertyId = route.params.id;
   PropertyClient.update(propertyId, data, uploadFiles.value)
