@@ -219,7 +219,6 @@ function displayFiles() {
           </div>
 
           <div class="flex justify-content-between gap-3">
-            <Button class="flex-1" severity="danger" outlined label="Delete" icon="pi pi-fw pi-trash"></Button>
             <Button type="submit" class="flex-1" label="Save" icon="pi pi-fw pi-check"></Button>
           </div>
 

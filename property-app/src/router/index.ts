@@ -16,7 +16,11 @@ const router = createRouter({
                 { path: '/login', component: () => import('@/views/LoginPage.vue') },
                 { path: '/register', component: () => import('@/views/RegistrationPage.vue') },
                 { path: '/search', component: () => import('@/views/SearchPage.vue') },
-                { path: '/property/:id', component: () => import('@/views/PropertyPage.vue') },
+                {
+                    path: '/property/:id',
+                    meta: { requiresAuth: true },
+                    component: () => import('@/views/PropertyPage.vue')
+                },
                 {
                     path: '/my/profile',
                     meta: { requiresAuth: true },
