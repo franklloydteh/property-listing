@@ -157,10 +157,6 @@ function displayFiles() {
 
             <span class="block text-900 font-bold text-xl col-12 pt-2 pb-4">Photos</span>
 
-            <div>
-              <a @click="displayFiles">log files</a>
-            </div>
-
             <div class="col-12 mt-3">
               <FileUpload
                   ref="fileUploaderRef"
