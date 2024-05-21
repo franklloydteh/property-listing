@@ -5,6 +5,9 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { PropertyValidator } from "@/validators/PropertyValidator";
 import PropertyClient from "@/client/PropertyClient";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const countries = ['Spain', 'Philippines']
 const categoryOptions = ['House', 'Apartment', 'Building', 'Storage Room', 'Land'];
@@ -38,6 +41,7 @@ const onSubmit = handleSubmit(data => {
       .then(res => {
         console.log(res)
         alert("Successfully Saved.")
+        router.push({path: '/my/property/list'})
       })
       .catch(function (error) {
         alert('Save Failed')

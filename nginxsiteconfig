@@ -2,6 +2,8 @@ server {
 
         server_name realista.franklloydteh.com
 
+        client_max_body_size 8M;
+
         root /var/www/myapp/dist;
         index index.html;
 
@@ -10,7 +12,7 @@ server {
                 try_files $uri  /index.html;
         }
 
-        location /admin {
+        location ~ (/admin|/i18n|/api|/upload|/uploads|/content-type-builder|/content-manager|/users-permissions|/email) {
            proxy_pass http://localhost:1337;
            proxy_set_header Access-Control-Allow-Origin *;
            proxy_http_version 1.1;

@@ -17,7 +17,7 @@ watch(route, (to) => {
 
 <template>
   <div class="w-full flex justify-content-center align-content-center">
-    <div class="card max-w-screen-lg">
+    <div class="card max-w-screen-lg w-full">
 
       <p class="mt-0 p-0 mb-5 text-700 text-2xl">Search Results</p>
 
